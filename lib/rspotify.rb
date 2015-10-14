@@ -1,5 +1,6 @@
 require 'rspotify/connection'
 require 'rspotify/version'
+require 'rspotify/parse'
 
 module RSpotify
   autoload :Album,    'rspotify/album'
