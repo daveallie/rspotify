@@ -22,7 +22,7 @@ module RSpotify
 
     private
     def get_uri_components(uri)
-      match = /spotify:(?:user:([A-Za-z0-9]+):playlist\:([A-Za-z0-9]+))|(?:(user|track|artist|album):([A-Za-z0-9]+))/.match(uri)
+      match = /spotify:(?:user:([A-Za-z0-9.]+):playlist:([A-Za-z0-9]+))|(?:(user|track|artist|album):([A-Za-z0-9.]+))/.match(uri)
       if match
         if match[1] && match[2]
           {'type' => 'playlist', 'user' => match[1], 'playlist' => match[2]}
