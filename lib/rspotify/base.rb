@@ -43,7 +43,7 @@ module RSpotify
 
       response = RSpotify.get path
       return response if RSpotify.raw_response
-      response["#{type}s"].map { |t| type_class.new t }
+      response["#{type}s"].map { |t| type_class.new t if t }
     end
     private_class_method :find_many
 
@@ -132,7 +132,7 @@ module RSpotify
     #           track.complete!
     #           track.instance_variable_get("@popularity") #=> 62
     def complete!
-      initialize RSpotify.get("#{type}s/#{@id}")
+      initialize RSpotify.get("#{@type}s/#{@id}")
     end
 
     # Used internally to retrieve an object's instance variable. If instance
